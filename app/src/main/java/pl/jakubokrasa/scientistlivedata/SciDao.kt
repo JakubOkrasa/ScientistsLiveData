@@ -12,5 +12,5 @@ interface SciDao {
     fun getScientists(): LiveData<List<Scientist>>
 
     @Insert
-    suspend fun  insertScientist()
+    suspend fun  insertScientist(scientist: Scientist)
 }

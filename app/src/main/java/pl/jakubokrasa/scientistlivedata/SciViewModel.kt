@@ -15,7 +15,7 @@ class SciViewModel(
             .also { getScientists(it) }
     }
 
-    fun getScientists(sciLiveData: MutableLiveData<List<Scientist>>) {
+    private fun getScientists(sciLiveData: MutableLiveData<List<Scientist>>) {
         getScientistsUseCase(
             params = Unit,
             scope = viewModelScope

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 
 class SciRepositoryImpl(private val sciDao: SciDao): SciRepository {
     override suspend fun insertScientist(scientist: Scientist) {
-        sciDao.insertScientist()
+        sciDao.insertScientist(scientist)
     }
 
     override fun getScientists(): LiveData<List<Scientist>> {
