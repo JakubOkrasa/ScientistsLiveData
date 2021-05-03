@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeScientists() {
-        sciViewModel.scientists.observe(this, {
+        sciViewModel.getScientists().observe(this, {
                 rvAdapter.setItems(it)
         })
     }

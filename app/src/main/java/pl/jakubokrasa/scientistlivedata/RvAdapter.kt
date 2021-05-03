@@ -16,7 +16,7 @@ class RvAdapter() : RecyclerView.Adapter<RvAdapter.SciViewHolder>() {
 
     fun setItems(scientists: List<Scientist>) {
         if (scientists.isNotEmpty()) this.scientists.clear()
-        this.scientists.addAll(scientists)
+        this.scientists.addAll(scientists.asReversed())
         notifyDataSetChanged()
     }
 
@@ -37,7 +37,8 @@ class RvAdapter() : RecyclerView.Adapter<RvAdapter.SciViewHolder>() {
 
 
 
-    inner class SciViewHolder(private val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class SciViewHolder(private val binding: RvItemBinding)
+        : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(scientist: Scientist) {
             with(binding) {

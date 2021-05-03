@@ -10,20 +10,8 @@ class SciViewModel(
     private val insertScientistUseCase: InsertScientistUseCase,
 ): ViewModel() {
 
-    val scientists by lazy {
-        MutableLiveData<List<Scientist>>()
-            .also { getScientists(it) }
-    }
-
-    private fun getScientists(sciLiveData: MutableLiveData<List<Scientist>>) {
-        getScientistsUseCase(
-            params = Unit,
-            scope = viewModelScope
-        ) {
-            result ->
-                result.onSuccess{ sciLiveData.value = it.value  }
-                result.onFailure {  }
-        }
+    fun getScientists(): LiveData<List<Scientist>> {
+        return getScientistsUseCase(params = Unit)
     }
 
     fun insertScientist(scientist: Scientist) {
